@@ -1,0 +1,52 @@
+---
+import "../styles/global.css";
+import { site } from "../content";
+
+interface Props {
+  title?: string;
+  description?: string;
+  kind?: "website" | "article";
+}
+
+const { title, description = site.description, kind = "website" } = Astro.props;
+const pageTitle = title ? `${title} | ${site.name}` : site.name;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        var stored = null;
+        try {
+          stored = localStorage.getItem("theme");
+        } catch (e) {}
+        var theme =
+          stored === "light" || stored === "dark"
+            ? stored
+            : window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+        root.classList.add(theme);
+        root.style.colorScheme = theme;
+      })();
+    </script>
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content={kind} />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1b1a19" media="(prefers-color-scheme: dark)" />
+  </head>
+  <body class="bg-bg font-reading text-copy antialiased">
+    <slot />
+  </body>
+</html>

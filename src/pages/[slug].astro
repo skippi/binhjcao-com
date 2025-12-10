@@ -1,0 +1,48 @@
+---
+import Base from "../layouts/Base.astro";
+import { formatDate, posts, site, type Entry } from "../content";
+
+export function getStaticPaths() {
+  return posts.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props as { entry: Entry };
+---
+
+<Base title={entry.title} description={entry.description} kind="article">
+  <main class="site-shell">
+    <article class="content-frame is-article">
+      <h1 class="content-title">{entry.title}</h1>
+      <p class="article-meta">
+        <time datetime={entry.date}>{formatDate(entry.date)}</time>
+        <span aria-hidden="true">·</span>
+        <a href="/">{site.name}</a>
+      </p>
+      {
+        entry.blocks.map((block) => {
+          if (block.type === "h2") return <h2>{block.text}</h2>;
+          if (block.type === "ul") {
+            return (
+              <ul>
+                {block.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            );
+          }
+          if (block.type === "code") {
+            return (
+              <pre>
+                <code>{block.code}</code>
+              </pre>
+            );
+          }
+          return <p class="content-paragraph" set:html={block.html} />;
+        })
+      }
+    </article>
+  </main>
+</Base>
