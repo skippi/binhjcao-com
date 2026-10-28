@@ -6,6 +6,12 @@ export const site = {
   description: "Projects and writing by Justin Cao.",
 };
 
+export const socials = [
+  { name: "Twitter", href: "https://x.com/binhjcao" },
+  { name: "Discord", href: "https://discord.com/users/177888205536886784/" },
+  { name: "Email", href: "mailto:jbtcao@gmail.com" },
+];
+
 export const bio = {
   default: [`Here be dragons.`],
   long: [
@@ -15,10 +21,10 @@ export const bio = {
 };
 
 export const projects = [
-  { name: "vimty", href: "https://skippi.github.io/" },
-  { name: "osumix", href: "https://skippi.github.io/" },
-  { name: "vnseg", href: "https://skippi.github.io/" },
-  { name: "portfolio", href: "https://skippi.github.io/" },
+  { name: "vimty", href: "https://github.com/skippi/vimty" },
+  { name: "osumix", href: "https://github.com/skippi/osumix" },
+  { name: "vnseg", href: "https://github.com/skippi/vnseg" },
+  { name: "portfolio", href: "https://binhjcao.com/" },
 ];
 
 export type Block =

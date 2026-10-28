@@ -137,6 +137,57 @@ body {
   line-height: 1.15;
 }
 
+.bio-section [data-bio-panel] > .content-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.socials {
+  margin: 2rem 0 0;
+}
+
+.social-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-list li {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.content-frame a.social-link,
+.content-frame a.social-link:hover {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-copy);
+  text-decoration: none;
+}
+
+.content-frame a.social-link:hover {
+  color: var(--text-secondary);
+}
+
+.social-link svg {
+  display: block;
+  width: 1.35em;
+  height: 1.35em;
+  flex: none;
+}
+
+.social-label {
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 30%, transparent);
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 0.18em;
+}
+
 .content-frame a.site-title-link,
 .content-frame a.site-title-link:hover {
   color: inherit;
@@ -328,13 +379,13 @@ body {
   }
 }
 
-.content-frame ul:not(.projects-list) {
+.content-frame ul:not(.projects-list):not(.social-list) {
   margin: 0 0 1.45rem;
   padding-left: 1.25rem;
   list-style: disc;
 }
 
-.content-frame ul:not(.projects-list) li {
+.content-frame ul:not(.projects-list):not(.social-list) li {
   margin: 0 0 0.35rem;
   padding: 0;
   text-wrap: pretty;
