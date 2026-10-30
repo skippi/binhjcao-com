@@ -115,7 +115,8 @@ body {
   overflow-wrap: break-word;
 }
 
-.content-paragraph {
+.content-paragraph,
+.article-body p {
   margin: 0 0 1.45rem;
   text-wrap: pretty;
 }

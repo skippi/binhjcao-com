@@ -1,6 +1,9 @@
 ---
+import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
-import { bio, formatDate, posts, projects, socials } from "../content";
+import { bio, formatDate, projects, socials } from "../content";
+
+const posts = (await getCollection("blog")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Base>
@@ -97,9 +100,9 @@ import { bio, formatDate, posts, projects, socials } from "../content";
               <div class="blogs-list">
                 {
                   posts.map((post) => (
-                    <a class="blog-row" href={`/${post.slug}`}>
-                      <span>{post.title}</span>
-                      <time datetime={post.date}>{formatDate(post.date!)}</time>
+                    <a class="blog-row" href={`/${post.id}`}>
+                      <span>{post.data.title}</span>
+                      <time datetime={post.data.date.toISOString().slice(0, 10)}>{formatDate(post.data.date)}</time>
                     </a>
                   ))
                 }

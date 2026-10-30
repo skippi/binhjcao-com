@@ -1,48 +1,33 @@
 ---
+import { getCollection, render } from "astro:content";
 import Base from "../layouts/Base.astro";
-import { formatDate, posts, site, type Entry } from "../content";
+import { formatDate, site } from "../content";
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
   return posts.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
 
-const { entry } = Astro.props as { entry: Entry };
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const date = entry.data.date.toISOString().slice(0, 10);
 ---
 
-<Base title={entry.title} description={entry.description} kind="article">
+<Base title={entry.data.title} description={entry.data.description} kind="article">
   <main class="site-shell">
     <article class="content-frame is-article">
-      <h1 class="content-title">{entry.title}</h1>
+      <h1 class="content-title">{entry.data.title}</h1>
       <p class="article-meta">
-        <time datetime={entry.date}>{formatDate(entry.date)}</time>
+        <time datetime={date}>{formatDate(entry.data.date)}</time>
         <span aria-hidden="true">·</span>
         <a href="/">{site.name}</a>
       </p>
-      {
-        entry.blocks.map((block) => {
-          if (block.type === "h2") return <h2>{block.text}</h2>;
-          if (block.type === "ul") {
-            return (
-              <ul>
-                {block.items.map((item) => (
-                  <li>{item}</li>
-                ))}
-              </ul>
-            );
-          }
-          if (block.type === "code") {
-            return (
-              <pre>
-                <code>{block.code}</code>
-              </pre>
-            );
-          }
-          return <p class="content-paragraph" set:html={block.html} />;
-        })
-      }
+      <div class="article-body">
+        <Content />
+      </div>
     </article>
   </main>
 </Base>

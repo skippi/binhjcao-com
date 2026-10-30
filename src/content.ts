@@ -27,43 +27,10 @@ export const projects = [
   { name: "portfolio", href: "https://binhjcao.com/" },
 ];
 
-export type Block =
-  | { type: "p"; html: string }
-  | { type: "h2"; text: string }
-  | { type: "ul"; items: string[] }
-  | { type: "code"; code: string };
-
-export type Entry = {
-  slug: string;
-  title: string;
-  date: string;
-  description: string;
-  blocks: Block[];
-};
-
-export const posts: Entry[] = [
-  {
-    slug: "hello-world",
-    title: "hello world",
-    date: "2026-10-28",
-    description: "A placeholder post.",
-    blocks: [
-      {
-        type: "p",
-        html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      },
-      {
-        type: "p",
-        html: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      },
-    ],
-  },
-];
-
-export function formatDate(iso: string) {
+export function formatDate(date: Date) {
   return new Intl.DateTimeFormat("en-US", {
     month: "long",
     year: "numeric",
     timeZone: "UTC",
-  }).format(new Date(`${iso}T00:00:00Z`));
+  }).format(date);
 }
