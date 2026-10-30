@@ -6,6 +6,9 @@ export default defineConfig({
   site: "https://binhjcao.com",
   trailingSlash: "never",
   integrations: [mdx()],
+  markdown: {
+    syntaxHighlight: false,
+  },
   vite: {
     plugins: [tailwindcss()],
   },

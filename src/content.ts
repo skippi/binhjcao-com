@@ -3,6 +3,7 @@ export const site = {
   handle: "binhjcao",
   url: "https://binhjcao.com",
   email: "hello@binhjcao.com",
+  avatar: "https://www.gravatar.com/avatar/2f4599e2332b6cec9022b09aca611559?s=64",
   description: "Projects and writing by Justin Cao.",
 };
 

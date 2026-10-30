@@ -21,9 +21,14 @@ const date = entry.data.date.toISOString().slice(0, 10);
     <article class="content-frame is-article">
       <h1 class="content-title">{entry.data.title}</h1>
       <p class="article-meta">
-        <time datetime={date}>{formatDate(entry.data.date)}</time>
-        <span aria-hidden="true">·</span>
-        <a href="/">{site.name}</a>
+        <a href="/">
+          <img class="article-avatar" src={site.avatar} alt="" width="28" height="28" />
+          <span class="article-byline">
+            <time datetime={date}>{formatDate(entry.data.date)}</time>
+            <span aria-hidden="true">·</span>
+            {site.name}
+          </span>
+        </a>
       </p>
       <div class="article-body">
         <Content />
