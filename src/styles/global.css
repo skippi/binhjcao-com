@@ -401,12 +401,8 @@ body {
     transition: opacity 0.3s ease-in-out;
   }
 
-  .blogs-list:hover .blog-row {
-    opacity: 0.8;
-  }
-
-  .blogs-list:hover .blog-row:hover {
-    opacity: 1;
+  .blog-row:hover {
+    opacity: 0.72;
   }
 }
 
