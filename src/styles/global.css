@@ -397,12 +397,18 @@ body {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .blog-row {
-    transition: opacity 0.3s ease-in-out;
+  .content-frame a.blog-row {
+    transition:
+      opacity 0.3s ease-in-out,
+      color 0.3s ease-in-out;
   }
 
-  .blog-row:hover {
+  .blogs-list:has(.blog-row:hover) .blog-row:not(:hover) {
     opacity: 0.72;
+  }
+
+  .content-frame a.blog-row:hover {
+    color: color-mix(in srgb, var(--text-copy) 78%, white);
   }
 }
 
