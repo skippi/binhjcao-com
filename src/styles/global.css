@@ -46,10 +46,10 @@
     --code-bg: #2b2b2b;
     --code-inline: #d0d0d0;
     --code-inline-bg: #3c3c3c;
-    --divider: #2b2b2b;
+    --divider: #505050;
     --focus: #0078d4;
     --selection: #264f78;
-    --line: #2b2b2b;
+    --line: #505050;
   }
 }
 
@@ -66,10 +66,10 @@
   --code-bg: #2b2b2b;
   --code-inline: #d0d0d0;
   --code-inline-bg: #3c3c3c;
-  --divider: #2b2b2b;
+  --divider: #505050;
   --focus: #0078d4;
   --selection: #264f78;
-  --line: #2b2b2b;
+  --line: #505050;
 }
 
 :root.light {
@@ -404,6 +404,10 @@ body {
   border-bottom: 1px solid var(--line);
   color: var(--text-copy);
   text-decoration: none;
+}
+
+.blog-row:first-child {
+  border-top: 1px solid var(--line);
 }
 
 .content-frame a.blog-row,
