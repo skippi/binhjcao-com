@@ -7,7 +7,13 @@ export default defineConfig({
   trailingSlash: "never",
   integrations: [mdx()],
   markdown: {
-    syntaxHighlight: false,
+    shikiConfig: {
+      themes: {
+        light: "light-plus",
+        dark: "dark-plus",
+      },
+      defaultColor: false,
+    },
   },
   vite: {
     plugins: [tailwindcss()],
