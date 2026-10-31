@@ -120,7 +120,12 @@ body {
 .site-shell {
   --page-pad: clamp(1.25rem, 3.4vw, 3.25rem);
   min-height: 100vh;
-  padding: var(--page-pad);
+  min-height: 100svh;
+  padding:
+    max(var(--page-pad), env(safe-area-inset-top))
+    max(var(--page-pad), env(safe-area-inset-right))
+    max(var(--page-pad), env(safe-area-inset-bottom))
+    max(var(--page-pad), env(safe-area-inset-left));
   container-type: inline-size;
 }
 
@@ -451,6 +456,7 @@ body {
   margin: 0 0 1.333rem;
   padding: 1rem 2rem 1rem 1rem;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   border-radius: 0.45rem;
   background: var(--code-bg);
   font-family: var(--font-reading);
@@ -550,7 +556,9 @@ body {
   .content-frame.is-article {
     margin-top: 48px;
   }
+}
 
+@media (min-width: 1100px), (min-width: 1000px) and (min-aspect-ratio: 1) {
   .home-layout {
     display: grid;
     grid-template-columns: minmax(0, 1.75fr) minmax(380px, 1fr);
@@ -578,7 +586,12 @@ body {
 
 @media (max-width: 639px) {
   .site-shell {
-    padding: 2.5rem 1.25rem 1.25rem;
+    --page-pad: 1.25rem;
+    padding:
+      max(2.5rem, env(safe-area-inset-top))
+      max(1.25rem, env(safe-area-inset-right))
+      max(1.25rem, env(safe-area-inset-bottom))
+      max(1.25rem, env(safe-area-inset-left));
   }
 
   .projects-list {
@@ -588,5 +601,58 @@ body {
   .blog-row {
     grid-template-columns: 1fr;
     gap: 0.15rem;
+  }
+
+  .content-frame pre {
+    padding: 0.85rem 0.9rem;
+  }
+
+  .content-frame pre code {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 639px), (pointer: coarse) {
+  .projects-list li {
+    margin-bottom: 0;
+  }
+
+  .projects-list a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .blog-row {
+    min-height: 44px;
+  }
+
+  .bio-toggle {
+    align-items: center;
+    min-height: 44px;
+    padding-bottom: 0;
+  }
+
+  .bio-toggle button {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.5rem 0.35rem;
+  }
+
+  .bio-toggle button[aria-pressed="true"]::after {
+    bottom: 0;
+  }
+
+  .social-list {
+    gap: 0.15rem 1.25rem;
+  }
+
+  .content-frame a.social-link {
+    min-height: 44px;
+    padding-inline: 0.15rem;
+  }
+
+  .article-meta a {
+    min-height: 44px;
   }
 }
