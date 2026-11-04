@@ -21,10 +21,10 @@ const posts = (await getCollection("blog")).sort((a, b) => b.data.date.valueOf()
               <span>Bio</span>
               <div class="bio-toggle-options" role="group" aria-label="Bio length">
                 <button type="button" data-bio="default" aria-pressed="true" aria-controls="bio-content">
-                  Default
+                  <span>Default</span>
                 </button>
                 <button type="button" data-bio="long" aria-pressed="false" aria-controls="bio-content">
-                  Long
+                  <span>Long</span>
                 </button>
               </div>
             </div>
