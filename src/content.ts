@@ -22,10 +22,38 @@ export const bio = {
 };
 
 export const projects = [
-  { name: "vimty", href: "https://github.com/skippi/vimty" },
-  { name: "osumix", href: "https://github.com/skippi/osumix" },
-  { name: "vnseg", href: "https://github.com/skippi/vnseg" },
-  { name: "portfolio", href: "https://binhjcao.com/" },
+  {
+    name: "vimty",
+    href: "https://github.com/skippi/vimty",
+    github: "https://github.com/skippi/vimty",
+    description: "Vim typing test",
+    icon: "terminal",
+    tags: ["Dev Tool", "Vim"],
+  },
+  {
+    name: "osumix",
+    href: "https://github.com/skippi/osumix",
+    github: "https://github.com/skippi/osumix",
+    description: "Audio compiler for osu beatmaps",
+    icon: "headphones",
+    tags: ["Audio", "Tool"],
+  },
+  {
+    name: "vnseg",
+    href: "https://github.com/skippi/vnseg",
+    github: "https://github.com/skippi/vnseg",
+    description: "NLP experiment for semantic Vietnamese word parsing",
+    icon: "cube",
+    tags: ["NLP", "Experiment"],
+  },
+  {
+    name: "portfolio",
+    href: "https://binhjcao.com/",
+    github: "https://github.com/skippi/skippi.github.io",
+    description: "This webpage",
+    icon: "layers",
+    tags: ["Web", "Design"],
+  },
 ];
 
 export function formatDate(date: Date) {
