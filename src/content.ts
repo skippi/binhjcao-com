@@ -2,13 +2,11 @@ export const site = {
   name: "Justin Cao",
   handle: "binhjcao",
   url: "https://binhjcao.com",
-  email: "hello@binhjcao.com",
   avatar: "https://www.gravatar.com/avatar/2f4599e2332b6cec9022b09aca611559?s=64",
   description: "Projects and writing by Justin Cao.",
 };
 
 export const socials = [
-  { name: "Twitter", href: "https://x.com/binhjcao" },
   { name: "Discord", href: "https://discord.com/users/177888205536886784/" },
   { name: "Email", href: "mailto:jbtcao@gmail.com" },
 ];
@@ -25,7 +23,6 @@ export const projects = [
   {
     name: "vimty",
     href: "https://github.com/skippi/vimty",
-    github: "https://github.com/skippi/vimty",
     description: "Vim typing test",
     icon: "terminal",
     tags: ["Dev Tool", "Vim"],
@@ -33,7 +30,6 @@ export const projects = [
   {
     name: "osumix",
     href: "https://github.com/skippi/osumix",
-    github: "https://github.com/skippi/osumix",
     description: "Audio compiler for osu beatmaps",
     icon: "headphones",
     tags: ["Audio", "Tool"],
@@ -41,7 +37,6 @@ export const projects = [
   {
     name: "vnseg",
     href: "https://github.com/skippi/vnseg",
-    github: "https://github.com/skippi/vnseg",
     description: "NLP experiment for semantic Vietnamese word parsing",
     icon: "cube",
     tags: ["NLP", "Experiment"],
